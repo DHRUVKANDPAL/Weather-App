@@ -1,0 +1,412 @@
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+<script src="https://kit.fontawesome.com/f9434fec00.js" crossorigin="anonymous"></script>
+  <style>
+    *{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-size: 1.2rem;
+    }
+    body{
+      background-color: bisque;
+    }
+    .wrapper{
+      display: flex;
+      align-items: center;
+      width:100%;
+      height:100vh;
+      flex-direction: column;
+
+    }
+    #search{
+      display: flex;
+      padding: 50px;
+      padding-top: 100px;
+      padding-bottom: 0px;
+      width:100%;
+      justify-content: center;
+    }
+    .result{
+      display: flex;
+      padding: 50px;
+      padding-top: 0px;
+      width:100%;
+      justify-content: center;
+      flex-wrap: wrap;
+      
+    }
+    form,ul{
+      width:50%;
+    }
+    @media (max-width:900px) {
+      form,ul{
+        width:70%;
+      }
+    }
+    @media (max-width:550px) {
+      form,ul{
+        width:100%;
+      }
+    }
+    
+    form input{
+      width:100%;
+      padding-left: 25px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      /* border-radius: 7px; */
+    }
+    ul{
+      /* border-radius: 10px; */
+      cursor: pointer;
+      background-color:transparent;
+      
+    }
+    .has-items{
+      background-color: rgb(221, 238, 253);
+      border:1px solid black;
+    }
+    li{
+      display: none;
+      list-style-type: none;
+      padding-left: 25px;
+      padding-top: 6px;
+      padding-bottom: 6px;
+      /* border-radius: 10px; */
+      /* border:1px solid black; */
+    }
+    .selected{
+      background-color: rgb(249, 141, 122);
+    }
+    li:nth-child(-n+10) {
+      display: list-item; 
+    }
+    .cont{
+      display: flex;
+      
+    }
+    form button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+    /* border-radius: 7px; */
+  }
+
+  form button:hover {
+    background: #0b7dda;
+  }
+  h1{
+    color:black;
+    font-size: 3em;
+  }
+  .results-panel{
+    display: flex;
+    justify-content: center;
+    width:50%;
+  }
+  #image,#abc{
+    display: flex;
+    justify-content: center;
+    width:50%;
+    flex-wrap: wrap;
+  }
+  img{
+    width:100px;
+    object-fit: contain;
+  }
+    body {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e0eafc;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333; 
+  flex-wrap: wrap;/* Default text color */
+  background-image: url('anime-style-clouds.jpg');
+    background-size: cover;
+}
+
+.weather-card {
+  background: linear-gradient(135deg, #ffffff, #d7e1ec);
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0 0, 0.2);
+  padding: 40px 20px;
+  width: 95%;
+  max-width: 700px; /* Adjust based on your preference */
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+}
+
+h2 {
+  font-size: 28px;
+  color: #4b4b4b;
+  margin-bottom: 30px;
+}
+
+.weather-info {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #555;
+}
+
+.weather-label {
+  font-weight: 600;
+  color: #6d7f97;
+}
+
+.weather-condition {
+  font-style: italic;
+}
+
+.forecast {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* margin-bottom: 20px; */
+}
+
+.forecast-day {
+  flex: 1;
+  margin: 10px 10px;
+ background: #f9fbfd;
+  border-radius: 15px;
+  padding: 10px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 250px;
+}
+
+.forecast-day:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.forecast-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #3e5060;
+}
+
+.forecast-day img {
+  max-width: 60px;
+  margin: 10px auto;
+}
+
+@media (min-width: 658px) {
+  .weather-card {
+    width:95%;
+    max-width: 1500px;
+  }
+  .forecast-day{
+    min-width: 230px;
+  }
+  .forecast-day img {
+    max-width: 100px;
+  }
+}
+@media (min-width: 1050px) {
+  .weather-card {
+    width:75%;
+    max-width: 1500px;
+  }
+  
+  .forecast-day img {
+    max-width: 100px;
+  }
+}
+.container{
+  display:flex;
+  /* flex-direction: row; */
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+}
+#xyz{
+  min-width:40%;
+}
+#pqr{
+  min-width:40%;
+  /* display: flex;
+  flex-direction: column;
+  align-items: space-between; */
+  
+}
+@media (max-width: 660px) {
+  .container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+#xyz{
+  min-width:100%;
+}
+#pqr{
+  min-width:100%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  
+}
+}
+#image2,#image3,#image{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div id="search">
+      <form id="form">
+        <div class="cont">
+          <input type="text" id="input1" placeholder="Enter City Name ">
+          <button  id="sbt"><i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+    <div class="result">
+      <ul id="3">
+      </ul>
+    </div>
+    <!-- <div class="results-panel">
+      <div id="image"></div>
+      <div id="abc"></div>
+      
+    </div> -->
+    <div class="weather-card" >
+      <h2 id="main">Weather Forecast</h2>
+      <div class="container">
+        <div id="xyz">
+          <div class="weather-info">
+            <div class="weather-label">Location:</div>
+            <div id="location">Your Location</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Date:</div>
+            <div id="date">Today's Date</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Temperature:</div>
+            <div id="temperature">Current Temperature</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Condition:</div>
+            <div id="condition">Weather Condition</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">High/Low Temperature:</div>
+            <div id="high-low">High/Low Temperature</div>
+          </div>
+        </div>
+        <div id="pqr">
+          
+          <div class="weather-info">
+            <div class="weather-label">Wind:</div>
+            <div id="wind">Wind Speed and Direction</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Humidity:</div>
+            <div id="humidity">Humidity Percentage</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Sunrise:</div>
+            <div id="sunrise">Time of Sunrise</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Sunset:</div>
+            <div id="sunset">Time of Sunset</div>
+          </div>
+          <div class="weather-info">
+            <div class="weather-label">Visibility:</div>
+            <div id="Visibility">Visibility</div>
+          </div>
+        </div>
+        </div>
+        <div class="forecast">
+          <div class="forecast-day">
+            <div class="forecast-label">Today</div>
+            <!-- <img src="weather_icon.png" alt="Weather Icon"> -->
+            <div class="cimg" id="image"></div>
+            <div id="Max1">Max: </div>
+            <div id="Min1">Min: </div>
+            <div id="Avg1">Avg: </div>
+            <div id="Humidity1">Humidity: </div>
+            <div id="RainChance1">Rain Chance: </div>
+          </div>
+          <div class="forecast-day">
+            <div class="forecast-label">Tomorrow</div>
+            <!-- <img src="weather_icon.png" alt="Weather Icon"> -->
+            <div class="cimg" id="image2"></div>
+            <div id="Max2">Max: </div>
+            <div id="Min2">Min: </div>
+            <div id="Avg2">Avg: </div>
+            <div id="Humidity2">Humidity: </div>
+            <div id="RainChance2">Rain Chance: </div>
+          </div>
+          <div class="forecast-day">
+            <div class="forecast-label">Day After Tomorrow</div>
+            <div class="cimg" id="image3"></div>
+            <!-- <img src="weather_icon.png" alt="Weather Icon"> -->
+            <div id="Max3">Max: </div>
+            <div id="Min3">Min: </div>
+            <div id="Avg3">Avg: </div>
+            <div id="Humidity3">Humidity: </div>
+            <div id="RainChance3">Rain Chance: </div>
+          </div>
+        </div>
+      <!-- </div> -->
+      
+      </div>
+      <br><br><br><br><br>
+      <footer class="footer">
+        <div class="waves">
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+        </div>
+        <ul class="menu">
+          <li class="menu__item"><a class="menu__link" href="#">&copy;2024 | All Rights Reserved</a></li>
+        </ul>
+      </footer>
+      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </div>
+  <br><br><br>
+  
+</body>
+<!-- city hi searchbar hai -->
+<script src="city.js"></script>
+<script src="script.js"></script>
+<script src="script2.js"></script>
+</html>
